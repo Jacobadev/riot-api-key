@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": [
+      "es6",
+      "dom",
+      "ES2022"
+    ],
+    "moduleResolution": "node16",
+    "rootDir": ".",
+    "outDir": "build",
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "strictNullChecks": false,
+    "moduleDetection": "force",
+    // Ignore module structure
+    "module": "Node16",
+    // Allow JSON modules to be imported
+    "resolveJsonModule": true,
+    // Allow JS files to be imported from TS and vice versa
+    "allowJs": true,
+    // Use correct ESM import behavior
+    "esModuleInterop": true,
+    // Disallow features that require cross-file awareness
+    "isolatedModules": true
+  },
+  "include": [
+    "src/**/*",
+    "__tests__/**/*"
+  ]
+}
