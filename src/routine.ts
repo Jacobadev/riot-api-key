@@ -21,10 +21,10 @@ export async function openFacebook(page: Page) {
 
 }
 export async function facebookLogin(page: Page) {
-  await page.locator('#email').fill('luizpurger1@gmail.com');
+  await page.locator('#email').fill(process.env.FACEBOOK_EMAIL);
   logger.info('Filled username.');
 
-  await page.locator('#pass').fill('Lc@9200359');
+  await page.locator('#pass').fill(process.env.FACEBOOK_PASSWORD);
   logger.info('Filled password.');
   // Click login button
   await page.locator('#loginbutton').click();
