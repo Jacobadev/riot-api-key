@@ -15,6 +15,7 @@ export async function setupBrowser() {
 
 export async function launchBrowser(): Promise<Browser> {
   return puppeteer.launch({
+    headless: false,
     timeout: 0,
   });
 }

@@ -7,6 +7,7 @@ import fs from 'fs'
 import { Page } from 'puppeteer';
 import { logger } from './logger.js';
 import path from 'path';
+import { configDotenv } from 'dotenv';
 export async function navigateToRiotGames(page: Page) {
   const lol_url = "https://authenticate.riotgames.com/?client_id=riot-developer-portal&locale=en_US&method=riot_identity&platform=web&redirect_uri=https%3A%2F%2Fauth.riotgames.com%2Fauthorize%3Fclient_id%3Driot-developer-portal%26redirect_uri%3Dhttps%253A%252F%252Fdeveloper.riotgames.com%252Foauth2-callback%26response_type%3Dcode%26scope%3Dopenid%2520email%2520summoner%26ui_locales%3Den";
   await page.goto(lol_url, { waitUntil: 'networkidle0' });
@@ -21,6 +22,7 @@ export async function openFacebook(page: Page) {
 
 }
 export async function facebookLogin(page: Page) {
+  configDotenv()
   await page.locator('#email').fill(process.env.FACEBOOK_EMAIL);
   logger.info('Filled username.');
 
