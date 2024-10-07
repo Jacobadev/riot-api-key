@@ -54,6 +54,3 @@ export async function extractAPIKey(page: Page, name: string) {
     logger.error('Error extracting or saving API key:', error);
   }
 }
-export async function resolveCaptcha() {
-
-}

@@ -1,11 +1,9 @@
-import path from "path";
 import puppeteer, { Browser } from "puppeteer";
 import { logger } from "./logger.js";
 
 export async function setupBrowser() {
 
-  const pathToExtension = path.join(process.cwd(), './capmonster-extension');
-  const browser = await launchBrowser(pathToExtension);
+  const browser = await launchBrowser();
   const page = await browser.newPage();
   logger.info('Browser Started');
 
@@ -15,14 +13,8 @@ export async function setupBrowser() {
 
 }
 
-export async function launchBrowser(extensionPath: string): Promise<Browser> {
-  logger.info('Launching browser with extension...');
+export async function launchBrowser(): Promise<Browser> {
   return puppeteer.launch({
-    headless: false,
     timeout: 0,
-    args: [
-      // `--disable-extensions-except=${extensionPath}`,
-      // `--load-extension=${extensionPath}`,
-    ],
   });
 }

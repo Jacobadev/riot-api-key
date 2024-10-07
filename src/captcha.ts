@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { logger } from './logger.js';
 import { Page } from 'puppeteer';
-import { waitForEver } from './utils.js';
-
+import dotenv from 'dotenv'
 export async function solveCaptcha(): Promise<string> {
+  dotenv.config()
   logger.info('Setting up CapMonster');
-  const apiKey = '04f4953ec8bcb1e6b05688bc2b01e4a5'; // Replace with your CapMonster API key
+  const apiKey = process.env.CAPMONSTER_API_KEY; // Replace with your CapMonster API key
   const siteKey = '6LcOGicUAAAAAI8bWJ6IYXt5teyzO-t4aKskR5Iz';
   const websiteURL = 'https://developer.riotgames.com/';
 
